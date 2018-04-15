@@ -1,7 +1,7 @@
 # Machine_Learning_in_Action
 Machine_Learning_in_Action_Code_and_Note
 
-ch2：k-近邻算法
+ch2：k-近邻算法\n
 ch3：决策树（ID3）
 ch4：基于概率论的分类方法：朴素贝叶斯
 ch5：Logistic回归
