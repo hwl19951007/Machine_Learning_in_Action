@@ -16,4 +16,5 @@ ch13:利用PCA简化数据
 ch14：利用SVD简化数据
 ch15:大数据与MapReduce 
 
+
 统一声明：主要参考书中所提供源码 @author: Peter Harrington
