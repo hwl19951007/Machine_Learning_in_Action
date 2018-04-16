@@ -10,7 +10,7 @@ ch6：支持向量机<br>
 ch7：利用Adaboost元算法提高分类性能<br>
 ch8：预测数值型数据：回归（线性回归）<br>
 ch9：树回归<br>
-ch10：K-均值聚类算法<br>
+ch10:K-均值聚类算法<br>
 ch11:使用Apriori算法进行关联分析<br>
 ch12:使用FP-growth算法来高效发现频繁项集<br>
 ch13:利用PCA简化数据<br>
