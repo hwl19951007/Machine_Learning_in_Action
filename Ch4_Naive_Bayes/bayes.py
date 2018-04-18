@@ -3,7 +3,6 @@ from numpy import *
 import re
 import operator
 import feedparser
-import jieba
 
 
 def loadDataSet():
