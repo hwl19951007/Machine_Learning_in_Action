@@ -210,33 +210,33 @@ def kernelTrans(X, A, kTup):
 
 def testRbf(k1=1.3):
     """测试函数，K1为高斯核函数的到达率"""
-    dataArr, labelArr = loadDataSet('testSetRBF.txt')
-    b, alphas = smoP(dataArr, labelArr, 200, 0.0001, 100, ('rbf', k1))
+    dataArr, labelArr = loadDataSet('testSetRBF.txt')    # 加载训练集
+    b, alphas = smoP(dataArr, labelArr, 200, 0.0001, 100, ('rbf', k1))    # 根据训练集计算b和alphas
     dataMat = mat(dataArr)
     labelMat = mat(labelArr).transpose()
-    svInd = nonzero(alphas.A > 0)[0]
+    svInd = nonzero(alphas.A > 0)[0]    # 获取支持向量
     sVs = dataMat[svInd]
     labelSV = labelMat[svInd]
     print("there are %d Support Vectors" % shape(sVs)[0])
     m, n = shape(dataMat)
     errorCount = 0
     for i in range(m):
-        kernelEval = kernelTrans(sVs, dataMat[i, :], ("rbf", k1))
-        predict = kernelEval.T * multiply(labelSV, alphas[svInd]) + b
-        if sign(predict) != sign(labelArr[i]):
+        kernelEval = kernelTrans(sVs, dataMat[i, :], ("rbf", k1))    # 计算各个点的核
+        predict = kernelEval.T * multiply(labelSV, alphas[svInd]) + b    # 根据支持向量的点，计算超平面，返回预测结果
+        if sign(predict) != sign(labelArr[i]):                          # 与特征值做对比并统计错误个数
             errorCount += 1
-    print("the training error rate is %f" % float(errorCount / m))
-    dataArr, labelArr = loadDataSet('testSetRBF2.txt')
+    print("the training error rate is %f" % float(errorCount / m))    # 打印错误率
+    dataArr, labelArr = loadDataSet('testSetRBF2.txt')    # 加载测试集
     errorCount = 0
     dataMat = mat(dataArr)
     labelMat = mat(labelArr).transpose()
     m, n = shape(dataMat)
     for i in range(m):
-        kernelEval = kernelTrans(sVs, dataMat[i, :], ("rbf", k1))
-        predict = kernelEval.T * multiply(labelSV, alphas[svInd]) + b
-        if sign(predict) != sign(labelArr[i]):
+        kernelEval = kernelTrans(sVs, dataMat[i, :], ("rbf", k1))    # 计算各个点的核
+        predict = kernelEval.T * multiply(labelSV, alphas[svInd]) + b    # 根据支持向量的点，计算超平面，返回预测结果
+        if sign(predict) != sign(labelArr[i]):                          # 与特征值做对比并统计错误个数
             errorCount += 1
-    print("the test error rate is %f" % float(errorCount / m))
+    print("the test error rate is %f" % float(errorCount / m))    # 打印错误率
 
 
 def img2vector(filename):
@@ -269,6 +269,7 @@ def loadImages(dirName):
 
 
 def testDigits(kTup = ("rbf, 10")):
+    """测试函数"""
     dataArr, labelArr = loadImages('trainingDigits')
     b, alphas = smoP(dataArr, labelArr, 200, 0.0001, 10000, kTup)
     dataMat = mat(dataArr)

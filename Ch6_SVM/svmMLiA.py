@@ -246,21 +246,7 @@ def calcWs(alphas, dataArr, classLabels):
     return w
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if __name__ == "__main__" :
+if __name__ == "__main__":
     dataArr, labelArr = loadDataSet('testSet.txt')
     print(labelArr)
     # b, alphas = smoSimple(dataArr, labelArr, 0.6, 0.001, 40)
